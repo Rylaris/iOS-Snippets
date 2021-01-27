@@ -14,6 +14,9 @@
 		70C4B64B25BFEF410062B406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70C4B64925BFEF410062B406 /* LaunchScreen.storyboard */; };
 		70C4B65A25BFF2130062B406 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B65925BFF2130062B406 /* SettingModel.swift */; };
 		70C4B65F25BFF24C0062B406 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B65E25BFF24C0062B406 /* UIViewController.swift */; };
+		70C4B66B25C0FE9A0062B406 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B66A25C0FE9A0062B406 /* ARViewController.swift */; };
+		70C4B67D25C100D10062B406 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C4B67C25C100D10062B406 /* art.scnassets */; };
+		70C4B6A525C1186D0062B406 /* simd_float4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B6A425C1186D0062B406 /* simd_float4x4.swift */; };
 		BB4E003625C05BD500CC62AB /* People+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E003425C05BD500CC62AB /* People+CoreDataClass.swift */; };
 		BB4E003725C05BD500CC62AB /* People+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E003525C05BD500CC62AB /* People+CoreDataProperties.swift */; };
 		BBFCF81C25C0576700EF7E3B /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFCF81B25C0576700EF7E3B /* CoreDataViewController.swift */; };
@@ -30,6 +33,9 @@
 		70C4B64C25BFEF410062B406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70C4B65925BFF2130062B406 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		70C4B65E25BFF24C0062B406 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		70C4B66A25C0FE9A0062B406 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARViewController.swift; path = Snippets/ViewController/ARViewController.swift; sourceTree = SOURCE_ROOT; };
+		70C4B67C25C100D10062B406 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		70C4B6A425C1186D0062B406 /* simd_float4x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simd_float4x4.swift; sourceTree = "<group>"; };
 		BB4E003425C05BD500CC62AB /* People+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BB4E003525C05BD500CC62AB /* People+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BBFCF81B25C0576700EF7E3B /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 				70C4B64725BFEF410062B406 /* Assets.xcassets */,
 				70C4B64925BFEF410062B406 /* LaunchScreen.storyboard */,
 				BBFCF81E25C057DD00EF7E3B /* Model.xcdatamodeld */,
+				70C4B67C25C100D10062B406 /* art.scnassets */,
 			);
 			path = SupportFile;
 			sourceTree = "<group>";
@@ -90,6 +97,7 @@
 		70C4B65525BFEFB90062B406 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				70C4B66925C0FE890062B406 /* AR */,
 				BBFCF81A25C0575000EF7E3B /* CoreData */,
 				70C4B64225BFEF3E0062B406 /* MainViewController.swift */,
 			);
@@ -108,8 +116,17 @@
 			isa = PBXGroup;
 			children = (
 				70C4B65E25BFF24C0062B406 /* UIViewController.swift */,
+				70C4B6A425C1186D0062B406 /* simd_float4x4.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		70C4B66925C0FE890062B406 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				70C4B66A25C0FE9A0062B406 /* ARViewController.swift */,
+			);
+			path = AR;
 			sourceTree = "<group>";
 		};
 		BBFCF81A25C0575000EF7E3B /* CoreData */ = {
@@ -182,6 +199,7 @@
 				70C4B64B25BFEF410062B406 /* LaunchScreen.storyboard in Resources */,
 				70C4B64825BFEF410062B406 /* Assets.xcassets in Resources */,
 				70C4B64625BFEF3E0062B406 /* Main.storyboard in Resources */,
+				70C4B67D25C100D10062B406 /* art.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,10 +213,12 @@
 				70C4B64325BFEF3E0062B406 /* MainViewController.swift in Sources */,
 				70C4B63F25BFEF3E0062B406 /* AppDelegate.swift in Sources */,
 				BB4E003725C05BD500CC62AB /* People+CoreDataProperties.swift in Sources */,
+				70C4B66B25C0FE9A0062B406 /* ARViewController.swift in Sources */,
 				70C4B65F25BFF24C0062B406 /* UIViewController.swift in Sources */,
 				BB4E003625C05BD500CC62AB /* People+CoreDataClass.swift in Sources */,
 				BBFCF81C25C0576700EF7E3B /* CoreDataViewController.swift in Sources */,
 				70C4B65A25BFF2130062B406 /* SettingModel.swift in Sources */,
+				70C4B6A525C1186D0062B406 /* simd_float4x4.swift in Sources */,
 				BBFCF82025C057DD00EF7E3B /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T6R6APYLA;
 				INFOPLIST_FILE = Snippets/Info.plist;
@@ -355,6 +376,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wenchanyuan.Snippets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T6R6APYLA;
 				INFOPLIST_FILE = Snippets/Info.plist;
@@ -374,6 +397,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wenchanyuan.Snippets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

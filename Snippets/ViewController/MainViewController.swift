@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     lazy var settingTableView = UITableView()
     
     private var settingItems: [[SettingModel]] = []
+    private var cellTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +25,18 @@ class MainViewController: UIViewController {
         settingTableView.dataSource = self
         
         settingItems = [
-            [NavigationCell(viewController: CoreDataViewController.self, style: .push, text: "CoreData增删改查")
+            [NavigationCell(viewController: ARViewController.self, style: .push, text: "ARKit+SceneKit模型跟随表情"),
+             NavigationCell(viewController: CoreDataViewController.self, style: .push, text: "CoreData增删改查")
+             
             ]
         ]
+        cellTitles = ["基础框架"]
     }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "aa"
+        return cellTitles[section]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
