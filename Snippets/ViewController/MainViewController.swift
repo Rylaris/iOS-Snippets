@@ -28,7 +28,8 @@ class MainViewController: UIViewController {
             [NavigationCell(viewController: ARViewController.self, style: .push, text: "ARKit+SceneKit模型跟随表情"),
              NavigationCell(viewController: CoreDataViewController.self, style: .push, text: "CoreData增删改查")
             ],
-            [NavigationCell(viewController: AnimationViewController.self, style: .push, text: "视图控制器过渡动画")
+            [NavigationCell(viewController: AnimationViewController.self, style: .push, text: "视图控制器过渡动画"),
+             NavigationCell(viewController: CoreAnimationAndCoreGraphicsViewController.self, style: .push, text: "使用CoreAnimation与CoreGraphics绘图")
             ]
         ]
         
