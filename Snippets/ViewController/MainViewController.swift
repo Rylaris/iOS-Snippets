@@ -29,7 +29,8 @@ class MainViewController: UIViewController {
              NavigationCell(viewController: CoreDataViewController.self, style: .push, text: "CoreData增删改查")
             ],
             [NavigationCell(viewController: AnimationViewController.self, style: .push, text: "视图控制器过渡动画"),
-             NavigationCell(viewController: CoreAnimationAndCoreGraphicsViewController.self, style: .push, text: "使用CoreAnimation与CoreGraphics绘图")
+             NavigationCell(viewController: CoreAnimationAndCoreGraphicsViewController.self, style: .push, text: "使用CoreAnimation与CoreGraphics绘图"),
+             NavigationCell(viewController: FloatingViewController.self, style: .push, text: "使用手势拖动缩放浮窗")
             ]
         ]
         

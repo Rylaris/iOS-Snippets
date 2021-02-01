@@ -19,6 +19,7 @@
 		70C4B65F25BFF24C0062B406 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B65E25BFF24C0062B406 /* UIViewController.swift */; };
 		70C4B67D25C100D10062B406 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C4B67C25C100D10062B406 /* art.scnassets */; };
 		70C4B6A525C1186D0062B406 /* simd_float4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B6A425C1186D0062B406 /* simd_float4x4.swift */; };
+		70E763B625C7E69E00E48FCC /* FloatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E763B525C7E69E00E48FCC /* FloatingViewController.swift */; };
 		BB17F49825C2FE4F00A5EBF0 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17F49725C2FE4F00A5EBF0 /* ARViewController.swift */; };
 		BB17F49D25C3005000A5EBF0 /* CoreAnimationAndCoreGraphicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17F49C25C3005000A5EBF0 /* CoreAnimationAndCoreGraphicsViewController.swift */; };
 		BB4E003625C05BD500CC62AB /* People+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4E003425C05BD500CC62AB /* People+CoreDataClass.swift */; };
@@ -42,6 +43,7 @@
 		70C4B65E25BFF24C0062B406 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		70C4B67C25C100D10062B406 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		70C4B6A425C1186D0062B406 /* simd_float4x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simd_float4x4.swift; sourceTree = "<group>"; };
+		70E763B525C7E69E00E48FCC /* FloatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewController.swift; sourceTree = "<group>"; };
 		BB17F49725C2FE4F00A5EBF0 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		BB17F49C25C3005000A5EBF0 /* CoreAnimationAndCoreGraphicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationAndCoreGraphicsViewController.swift; sourceTree = "<group>"; };
 		BB4E003425C05BD500CC62AB /* People+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				70424A8D25C2AFC200BD9D9A /* AnimationViewController.swift */,
 				70424A9025C2B05D00BD9D9A /* DestinationViewController.swift */,
 				70424A9325C2B2FD00BD9D9A /* Animator.swift */,
+				70E763B525C7E69E00E48FCC /* FloatingViewController.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				70C4B64325BFEF3E0062B406 /* MainViewController.swift in Sources */,
 				70C4B63F25BFEF3E0062B406 /* AppDelegate.swift in Sources */,
 				70424A8E25C2AFC200BD9D9A /* AnimationViewController.swift in Sources */,
+				70E763B625C7E69E00E48FCC /* FloatingViewController.swift in Sources */,
 				BB4E003725C05BD500CC62AB /* People+CoreDataProperties.swift in Sources */,
 				70C4B65F25BFF24C0062B406 /* UIViewController.swift in Sources */,
 				BB4E003625C05BD500CC62AB /* People+CoreDataClass.swift in Sources */,
