@@ -10,6 +10,9 @@
 		70424A8E25C2AFC200BD9D9A /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70424A8D25C2AFC200BD9D9A /* AnimationViewController.swift */; };
 		70424A9125C2B05D00BD9D9A /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70424A9025C2B05D00BD9D9A /* DestinationViewController.swift */; };
 		70424A9425C2B2FD00BD9D9A /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70424A9325C2B2FD00BD9D9A /* Animator.swift */; };
+		7050937925D388DD00FC3F48 /* TimeScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050937825D388DD00FC3F48 /* TimeScrollViewController.swift */; };
+		7065691F25DF8CD300BB8914 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065691E25DF8CD300BB8914 /* TableViewDataSource.swift */; };
+		7065692225DFA42200BB8914 /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065692125DFA42200BB8914 /* CoreDataExtension.swift */; };
 		70C4B63F25BFEF3E0062B406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B63E25BFEF3E0062B406 /* AppDelegate.swift */; };
 		70C4B64325BFEF3E0062B406 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C4B64225BFEF3E0062B406 /* MainViewController.swift */; };
 		70C4B64625BFEF3E0062B406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70C4B64425BFEF3E0062B406 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 		70424A8D25C2AFC200BD9D9A /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		70424A9025C2B05D00BD9D9A /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		70424A9325C2B2FD00BD9D9A /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		7050937825D388DD00FC3F48 /* TimeScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScrollViewController.swift; sourceTree = "<group>"; };
+		7065691E25DF8CD300BB8914 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		7065692125DFA42200BB8914 /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
 		70C4B63B25BFEF3E0062B406 /* Snippets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snippets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C4B63E25BFEF3E0062B406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C4B64225BFEF3E0062B406 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -70,8 +76,16 @@
 				70424A9025C2B05D00BD9D9A /* DestinationViewController.swift */,
 				70424A9325C2B2FD00BD9D9A /* Animator.swift */,
 				70E763B525C7E69E00E48FCC /* FloatingViewController.swift */,
+				7050937825D388DD00FC3F48 /* TimeScrollViewController.swift */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		70AB560C25C93EB5008AF189 /* Fundamental */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fundamental;
 			sourceTree = "<group>";
 		};
 		70C4B63225BFEF3E0062B406 = {
@@ -118,6 +132,7 @@
 		70C4B65525BFEFB90062B406 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				70AB560C25C93EB5008AF189 /* Fundamental */,
 				BB17F49B25C2FFD700A5EBF0 /* Graphic */,
 				BB17F49625C2FE4F00A5EBF0 /* AR */,
 				70424A8C25C2AF9400BD9D9A /* Animation */,
@@ -166,6 +181,8 @@
 				BB4E003425C05BD500CC62AB /* People+CoreDataClass.swift */,
 				BB4E003525C05BD500CC62AB /* People+CoreDataProperties.swift */,
 				BBFCF81B25C0576700EF7E3B /* CoreDataViewController.swift */,
+				7065691E25DF8CD300BB8914 /* TableViewDataSource.swift */,
+				7065692125DFA42200BB8914 /* CoreDataExtension.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -243,10 +260,13 @@
 			files = (
 				70C4B64325BFEF3E0062B406 /* MainViewController.swift in Sources */,
 				70C4B63F25BFEF3E0062B406 /* AppDelegate.swift in Sources */,
+				7065691F25DF8CD300BB8914 /* TableViewDataSource.swift in Sources */,
 				70424A8E25C2AFC200BD9D9A /* AnimationViewController.swift in Sources */,
 				70E763B625C7E69E00E48FCC /* FloatingViewController.swift in Sources */,
 				BB4E003725C05BD500CC62AB /* People+CoreDataProperties.swift in Sources */,
 				70C4B65F25BFF24C0062B406 /* UIViewController.swift in Sources */,
+				7050937925D388DD00FC3F48 /* TimeScrollViewController.swift in Sources */,
+				7065692225DFA42200BB8914 /* CoreDataExtension.swift in Sources */,
 				BB4E003625C05BD500CC62AB /* People+CoreDataClass.swift in Sources */,
 				BB17F49825C2FE4F00A5EBF0 /* ARViewController.swift in Sources */,
 				70424A9425C2B2FD00BD9D9A /* Animator.swift in Sources */,

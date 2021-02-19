@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
     
     lazy var settingTableView = UITableView()
+    
+    let locationManager = CLLocationManager()
     
     private var settingItems: [[SettingModel]] = []
     private var cellTitles = [String]()
@@ -30,7 +33,8 @@ class MainViewController: UIViewController {
             ],
             [NavigationCell(viewController: AnimationViewController.self, style: .push, text: "视图控制器过渡动画"),
              NavigationCell(viewController: CoreAnimationAndCoreGraphicsViewController.self, style: .push, text: "使用CoreAnimation与CoreGraphics绘图"),
-             NavigationCell(viewController: FloatingViewController.self, style: .push, text: "使用手势拖动缩放浮窗")
+             NavigationCell(viewController: FloatingViewController.self, style: .push, text: "使用手势拖动缩放浮窗"),
+//             NavigationCell(viewController: TimeScrollViewController.self, style: .push, text: "数字滚动")
             ]
         ]
         

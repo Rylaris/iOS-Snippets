@@ -14,6 +14,7 @@ class CoreDataViewController: UIViewController {
     
     // 列表的数据源
     var peoples = [People]()
+    var dataSource: TableViewDataSource<CoreDataViewController>!
     
     // 与CoreData交互的上下文
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -24,10 +25,14 @@ class CoreDataViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.badge.plus"), style: .done, target: self, action: #selector(insertAction))
         view.addSubview(peopleTableView)
         peopleTableView.frame = view.frame
-        peopleTableView.delegate = self
-        peopleTableView.dataSource = self
-        peoples = readPeoples()
-        peopleTableView.reloadData()
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        let request = People.sortedFetchRequest
+        request.returnsObjectsAsFaults = false
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        dataSource = TableViewDataSource(tableView: peopleTableView, cellIdentifier: "peopleCell", fetchedResultsController: fetchedResultsController, delegate: self)
     }
     
     @objc func insertAction() {
@@ -46,7 +51,6 @@ class CoreDataViewController: UIViewController {
                 return
             }
             self.addPeople(name: name, age: Int16(age) ?? 0)
-            self.peopleTableView.reloadData()
         })
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.addAction(okAction)
@@ -57,89 +61,73 @@ class CoreDataViewController: UIViewController {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension CoreDataViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        peoples.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellid = "tableViewCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellid) ?? UITableViewCell(style: .value1, reuseIdentifier: cellid)
-        let people = peoples[indexPath.row]
-        cell.textLabel?.text = people.name
-        cell.detailTextLabel?.text = people.age.description
-        return cell
-    }
-    
-    // tableViewCell被点击时触发修改
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "修改人物信息", message: nil, preferredStyle: .alert)
-        let selectedPeople = peoples[indexPath.row]
-        alert.addTextField(configurationHandler: {
-            $0.placeholder = "姓名"
-            $0.text = selectedPeople.name
-        })
-        alert.addTextField(configurationHandler: {
-            $0.placeholder = "年龄"
-            $0.text = selectedPeople.age.description
-            $0.keyboardType = .numberPad
-        })
-        let okAction = UIAlertAction(title: "修改", style: .default, handler: { _ in
-            let name = alert.textFields![0].text ?? ""
-            let age = alert.textFields![1].text ?? ""
-            if name.isEmpty || age.isEmpty {
-                return
-            }
-            self.updatePeople(at: indexPath.row, newName: name, newAge: Int16(age) ?? 0)
-            self.peopleTableView.reloadData()
-        })
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    // 令tableViewCell支持左滑操作
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    // 指定左滑时进行删除操作
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    // tableViewCell的左滑删除
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        deletePeople(at: indexPath.row)
-        peopleTableView.reloadData()
-    }
-}
+//extension CoreDataViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        peoples.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cellid = "tableViewCell"
+//        let cell = tableView.dequeueReusableCell(withIdentifier: cellid) ?? UITableViewCell(style: .value1, reuseIdentifier: cellid)
+//        let people = peoples[indexPath.row]
+//        cell.textLabel?.text = people.name
+//        cell.detailTextLabel?.text = people.age.description
+//        return cell
+//    }
+//
+//    // tableViewCell被点击时触发修改
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let alert = UIAlertController(title: "修改人物信息", message: nil, preferredStyle: .alert)
+//        let selectedPeople = peoples[indexPath.row]
+//        alert.addTextField(configurationHandler: {
+//            $0.placeholder = "姓名"
+//            $0.text = selectedPeople.name
+//        })
+//        alert.addTextField(configurationHandler: {
+//            $0.placeholder = "年龄"
+//            $0.text = selectedPeople.age.description
+//            $0.keyboardType = .numberPad
+//        })
+//        let okAction = UIAlertAction(title: "修改", style: .default, handler: { _ in
+//            let name = alert.textFields![0].text ?? ""
+//            let age = alert.textFields![1].text ?? ""
+//            if name.isEmpty || age.isEmpty {
+//                return
+//            }
+//            self.updatePeople(at: indexPath.row, newName: name, newAge: Int16(age) ?? 0)
+//            self.peopleTableView.reloadData()
+//        })
+//        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+//        alert.addAction(okAction)
+//        alert.addAction(cancelAction)
+//        present(alert, animated: true, completion: nil)
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//
+//    // 令tableViewCell支持左滑操作
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    // 指定左滑时进行删除操作
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .delete
+//    }
+//
+//    // tableViewCell的左滑删除
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        deletePeople(at: indexPath.row)
+//        peopleTableView.reloadData()
+//    }
+//}
 
 // MARK: - CoreData增删改查
 
 extension CoreDataViewController {
-    func readPeoples() -> [People] {
-        let request: NSFetchRequest = People.fetchRequest()
-        var result = [People]()
-        do {
-            result = try managedObjectContext.fetch(request)
-        } catch {
-            print("\(error)")
-        }
-        return result
-    }
     
     func addPeople(name: String, age: Int16) {
-        let newPeople = NSEntityDescription.insertNewObject(forEntityName: "People", into: managedObjectContext) as! People
-        newPeople.name = name
-        newPeople.age = age
-        do {
-            try managedObjectContext.save()
-            peoples.append(newPeople)
-        } catch {
-            print("\(error)")
+        managedObjectContext.performChanges {
+            _ = People.insert(into: self.managedObjectContext, age: age, name: name)
         }
     }
     
@@ -168,6 +156,19 @@ extension CoreDataViewController {
             peoples[index].age = newAge
         } catch {
             print("\(error)")
+        }
+    }
+}
+
+extension CoreDataViewController: TableViewDataSourceDelegate {
+    func configure(_ cell: UITableViewCell, for object: People) {
+        cell.textLabel?.text = object.name
+        cell.detailTextLabel?.text = object.age.description
+    }
+    
+    func tableViewDidSelectRowAt(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        managedObjectContext.performChanges {
+            self.managedObjectContext.delete(self.dataSource.objectAtIndexPath(indexPath))
         }
     }
 }
